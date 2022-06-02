@@ -429,7 +429,7 @@ module.exports = {
 		const guild = data.guild_id ? getOrCreateGuild(c, data.guild_id, data.shardId) : void 0;
 		const channel = getOrCreateChannel(c, data.channel_id, guild);
 		channel.lastMessageId = data.id;
-		const message = channel.messages._add(data);
+		const message = channel.messages?._add?.(data);
 		return { message };
 	},
 
