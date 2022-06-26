@@ -463,7 +463,7 @@ module.exports = {
 		const guild = data.guild_id ? getOrCreateGuild(c, data.guild_id, data.shardId) : void 0;
 		const channel = getOrCreateChannel(c, data.channel_id, guild);
 		
-		if (!channel.messages) return { old: undefined, updated: undefined };
+		if (!channel.messages.cache) return { old: undefined, updated: undefined };
 		
 		let message = channel.messages.cache.get(data.id);
 		let old;
